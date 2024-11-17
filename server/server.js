@@ -97,7 +97,8 @@ const app = express(),
       io = socket(server);
 
 // Use the port from the environment (Render sets this for you) or fall back to config port (for local dev)
-let port = process.env.PORT || config.port;
+// let port = process.env.PORT || config.port;
+const port = process.env.PORT || 3037;
 
 server.listen(port, () => {
   console.log(`Server listening on port ${port}`);
