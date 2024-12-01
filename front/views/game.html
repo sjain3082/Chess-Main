@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Board</title>
-    <!-- Include Chessboard.js Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
-    <!-- Inline Styles for Page -->
+    {{> head}}
     <style>
+        /* General body styling */
         body {
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #141e30, #243b55);
+            background: linear-gradient(135deg, #2c5364, #0f2027);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
         }
@@ -62,22 +58,26 @@
         <div id="pgn">No moves yet.</div>
     </div>
 
-    <!-- Include JavaScript Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-    <!-- Initialize the Chessboard -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        $(document).ready(function () {
+            // Initialize the chessboard
             const board = Chessboard('myBoard', {
                 draggable: true,
+                position: 'start',
                 dropOffBoard: 'trash',
                 sparePieces: false
             });
 
-            // Mock player color (replace '{{color}}' with dynamic value if needed)
+            // Mock player color (update dynamically as needed)
             const playerColor = 'white';
             console.log('Playing as ' + playerColor);
-            document.getElementById('status').innerText = "Playing as " + playerColor;
+            $('#status').text('Playing as ' + playerColor);
+
+            // Add socket interaction (if needed)
+            socket.on('gameUpdate', function (data) {
+                // Example: Update board or status based on server messages
+                console.log(data);
+            });
         });
     </script>
 </body>
