@@ -5,10 +5,6 @@
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
-    <!-- Background particles -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
 
     <!-- Chessboard container -->
     <div class="container">
@@ -30,16 +26,17 @@
             });
 
             // Mock player color (update dynamically as needed)
-            const playerColor = 'white';
+            const playerColor = 'white'; // This can be dynamically set based on your server's game logic
             console.log('Playing as ' + playerColor);
             $('#status').text('Playing as ' + playerColor);
 
-            // Add socket interaction (if needed)
+            // Example of game update
             socket.on('gameUpdate', function (data) {
-                // Example: Update board or status based on server messages
+                // This is where the server could send game updates, and you can adjust the game state.
                 console.log(data);
             });
         });
     </script>
+
 </body>
 </html>
