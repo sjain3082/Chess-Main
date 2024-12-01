@@ -1,42 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{> head}}
-    <link rel="stylesheet" href="/public/css/style.css">
-</head>
-<body>
 
-    <!-- Chessboard container -->
-    <div class="container">
-        <div id="myBoard"></div>
+<html>
+    <head>
+        {{> head}}
+    </head>
+    <body>
+
+        <div id="myBoard" style="width: 700px"></div>
         <label>Status:</label>
-        <div id="status">Waiting for the game to start...</div>
+        <div id="status"></div>
         <label>PGN:</label>
-        <div id="pgn">No moves yet.</div>
-    </div>
+        <div id="pgn"></div>
 
-    <script>
-        $(document).ready(function () {
-            // Initialize the chessboard
-            const board = Chessboard('myBoard', {
-                draggable: true,
-                position: 'start',
-                dropOffBoard: 'trash',
-                sparePieces: false
-            });
-
-            // Mock player color (update dynamically as needed)
-            const playerColor = 'white'; // This can be dynamically set based on your server's game logic
+        <script>
+            let playerColor = '{{color}}';
             console.log('Playing as ' + playerColor);
-            $('#status').text('Playing as ' + playerColor);
+        </script>
+        <script src="/public/js/index.js"></script>
 
-            // Example of game update
-            socket.on('gameUpdate', function (data) {
-                // This is where the server could send game updates, and you can adjust the game state.
-                console.log(data);
-            });
-        });
-    </script>
-
-</body>
+    </body>
 </html>
