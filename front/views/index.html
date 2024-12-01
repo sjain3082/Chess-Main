@@ -1,219 +1,12 @@
+<!DOCTYPE html>
 <html>
     <head>
-        {{> head}}
-    </head>
-    <body>
-        <h2>Game code</h2>
-        <input type="text" id="codeInput">
-        <button id="createGame">Create game</button>
-        <button id="joinGame">Join game</button>
-        <div style="color: red" id="errorMessage"></div>
-
-        <script>
-            $('#createGame').on('click', function() {
-                window.location.replace('/white?code=' + $('#codeInput').val());
-            });
-            $('#joinGame').on('click', function() {
-                window.location.replace('/black?code=' + $('#codeInput').val());
-            });
-
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('error') == 'invalidCode') {
-                $('#errorMessage').text('Invalid invite code');
-            }
-        </script>
-    </body>
-</html>
-
-
-
-<!-- chang code -->
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    {{> head}}
-    <style>
-        /* General Body Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            margin: 50px;
-            background: #161b22;
-            color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Input Field Styling */
-        #codeInput {
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #fff;
-            border-radius: 25px;
-            width: 250px;
-            outline: none;
-            margin-bottom: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        #codeInput:focus {
-            border-color: #e30909;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Button Styling */
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            background: linear-gradient(135deg, #dd310a, #ff6f61);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        button:active {
-            transform: translateY(2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Error Message Styling */
-        #errorMessage {
-            color: #ff6f61;
-            font-weight: bold;
-            margin-top: 20px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Advanced Loading Spinner */
-        .spinner {
-            display: none;
-            margin: 20px auto;
-            position: relative;
-            width: 50px;
-            height: 50px;
-        }
-
-        .spinner div {
-            box-sizing: border-box;
-            display: block;
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            margin: 4px;
-            border: 4px solid #fff;
-            border-radius: 50%;
-            animation: spinAnimation 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-            border-color: #fff transparent transparent transparent;
-        }
-
-        .spinner div:nth-child(1) {
-            animation-delay: -0.45s;
-        }
-
-        .spinner div:nth-child(2) {
-            animation-delay: -0.3s;
-        }
-
-        .spinner div:nth-child(3) {
-            animation-delay: -0.15s;
-        }
-
-        @keyframes spinAnimation {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-</head>
-<body>
-    <h2>Game Code</h2>
-    <input type="text" id="codeInput" placeholder="Enter game code">
-    <button id="createGame">Create Game</button>
-    <button id="joinGame">Join Game</button>
-    <div id="errorMessage"></div>
-    <div class="spinner" id="loadingSpinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <script>
-        // Show loading spinner and navigate
-        function handleButtonClick(path) {
-            const code = document.getElementById('codeInput').value.trim();
-            if (code === "") {
-                document.getElementById('errorMessage').textContent = "Code cannot be empty!";
-                return;
-            }
-
-            // Show spinner and hide error message
-            document.getElementById('loadingSpinner').style.display = "block";
-            document.getElementById('errorMessage').textContent = "";
-
-            // Simulate delay before navigation (for demonstration)
-            setTimeout(() => {
-                window.location.replace(${path}?code=${code});
-            }, 1000); // Adjust delay as needed
-        }
-
-        // Event listeners for buttons
-        document.getElementById('createGame').addEventListener('click', () => handleButtonClick('/white'));
-        document.getElementById('joinGame').addEventListener('click', () => handleButtonClick('/black'));
-
-        // Show error message if URL contains error parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('error') === 'invalidCode') {
-            document.getElementById('errorMessage').textContent = 'Invalid invite code';
-        }
-    </script>
-</body>
-</html> -->
-
-<!-- New change code -->
-<html>
-    <head>
-        <!-- Ensure `{{> head}}` only includes essential imports -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Code</title>
         <style>
-            /* General body styling */
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                text-align: center;
-                margin: 0; /* Remove extra margins */
                 background: #2b2d42;
                 color: white;
                 height: 100vh;
@@ -221,104 +14,53 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                margin: 0;
             }
-
-            /* Heading styling */
             h2 {
                 font-size: 2.5rem;
                 margin-bottom: 20px;
-                animation: fadeIn 1s ease-out;
-                color: #f4f4f4;
-                letter-spacing: 2px;
             }
-
-            @keyframes fadeIn {
-                0% {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* Input field styling */
             #codeInput {
-                padding: 15px;
+                padding: 10px;
                 font-size: 16px;
-                border: 2px solid #fff;
-                border-radius: 25px;
-                width: 300px;
-                outline: none;
+                border: 1px solid #fff;
+                border-radius: 5px;
                 margin-bottom: 20px;
-                text-align: center;
-                background: rgba(255, 255, 255, 0.1);
-                color: white;
-                transition: all 0.3s ease;
             }
-
-            #codeInput:focus {
-                border-color: #e63946;
-                background: rgba(255, 255, 255, 0.2);
-            }
-
-            /* Button styling */
             button {
-                padding: 12px 30px;
-                font-size: 16px;
-                font-weight: bold;
-                color: #fff;
-                background: linear-gradient(135deg, #d90429, #ef233c);
-                border: none;
-                border-radius: 25px;
-                cursor: pointer;
+                padding: 10px 20px;
                 margin: 10px;
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease;
-            }
-
-            button:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-            }
-
-            button:active {
-                transform: translateY(2px);
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            }
-
-            /* Error message styling */
-            #errorMessage {
-                color: #ff6f61;
-                font-weight: bold;
-                margin-top: 20px;
-                font-size: 1.1rem;
-                animation: fadeIn 0.8s ease-out;
+                background: #d90429;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
             }
         </style>
     </head>
     <body>
         <h2>Game Code</h2>
-        <input type="text" id="codeInput" placeholder="Enter your game code">
+        <input type="text" id="codeInput" placeholder="Enter code">
         <button id="createGame">Create Game</button>
         <button id="joinGame">Join Game</button>
-        <div id="errorMessage"></div>
+        <div id="errorMessage" style="color: red;"></div>
 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-            $('#createGame').on('click', function() {
-                window.location.replace('/white?code=' + $('#codeInput').val());
-            });
-            $('#joinGame').on('click', function() {
-                window.location.replace('/black?code=' + $('#codeInput').val());
+            $('#createGame').on('click', function () {
+                console.log('Redirecting to /white?code=' + $('#codeInput').val());
+                window.location.href = '/white?code=' + $('#codeInput').val();
             });
 
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('error') == 'invalidCode') {
+            $('#joinGame').on('click', function () {
+                console.log('Redirecting to /black?code=' + $('#codeInput').val());
+                window.location.href = '/black?code=' + $('#codeInput').val();
+            });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') === 'invalidCode') {
                 $('#errorMessage').text('Invalid invite code');
             }
         </script>
     </body>
 </html>
-
-
