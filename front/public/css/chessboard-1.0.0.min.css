@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #1e1f29, #3b3d4f); /* Fallback gradient */
+    background: linear-gradient(135deg, #1e1f29, #3b3d4f);
     color: white;
     overflow: hidden;
     position: relative;
@@ -22,7 +22,7 @@ body:before {
     height: 100%;
     background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent),
                 url('https://source.unsplash.com/1920x1080/?abstract,texture') no-repeat center center/cover;
-    filter: blur(4px) brightness(0.7); /* Reduce blur and adjust brightness */
+    filter: blur(4px) brightness(0.7);
     z-index: -1;
 }
 
@@ -69,4 +69,40 @@ body:before {
     top: 80%;
     left: 30%;
     animation-duration: 9s;
+}
+
+/* Chessboard Styling */
+#myBoard {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    border: 4px solid #404040;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #f0f0f0;
+}
+
+#status, #pgn {
+    margin: 10px auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    width: 90%;
+    font-family: monospace;
+    word-wrap: break-word;
+    color: white;
 }
