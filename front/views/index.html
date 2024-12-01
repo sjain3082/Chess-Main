@@ -204,4 +204,121 @@
 </body>
 </html> -->
 
+<!-- New change code -->
+<html>
+    <head>
+        {{> head}}
+        <style>
+            /* General body styling */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-align: center;
+                margin: 50px;
+                background: #2b2d42;
+                color: white;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Heading styling */
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                animation: fadeIn 1s ease-out;
+                color: #f4f4f4;
+                letter-spacing: 2px;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Input field styling */
+            #codeInput {
+                padding: 15px;
+                font-size: 16px;
+                border: 2px solid #fff;
+                border-radius: 25px;
+                width: 300px;
+                outline: none;
+                margin-bottom: 20px;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                transition: all 0.3s ease;
+            }
+
+            #codeInput:focus {
+                border-color: #e63946;
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            /* Button styling */
+            button {
+                padding: 12px 30px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #fff;
+                background: linear-gradient(135deg, #d90429, #ef233c);
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                margin: 10px;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            button:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            button:active {
+                transform: translateY(2px);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Error message styling */
+            #errorMessage {
+                color: #ff6f61;
+                font-weight: bold;
+                margin-top: 20px;
+                font-size: 1.1rem;
+                animation: fadeIn 0.8s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Game Code</h2>
+        <input type="text" id="codeInput" placeholder="Enter your game code">
+        <button id="createGame">Create Game</button>
+        <button id="joinGame">Join Game</button>
+        <div style="color: red" id="errorMessage"></div>
+
+        <script>
+            $('#createGame').on('click', function() {
+                window.location.replace('/white?code=' + $('#codeInput').val());
+            });
+            $('#joinGame').on('click', function() {
+                window.location.replace('/black?code=' + $('#codeInput').val());
+            });
+
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') == 'invalidCode') {
+                $('#errorMessage').text('Invalid invite code');
+            }
+        </script>
+    </body>
+</html>
+
 
