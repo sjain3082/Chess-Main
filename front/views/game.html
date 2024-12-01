@@ -1,83 +1,84 @@
-<html>
-    <head>
-        <title>Chess Game</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" />
-        <style>
-            /* General body styling */
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                margin: 0;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: linear-gradient(135deg, #1e1f29, #3b3d4f);
-                color: white;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Board</title>
+    <!-- Include Chessboard.js Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
+    <!-- Inline Styles for Page -->
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
 
-            /* Chessboard container */
-            .container {
-                text-align: center;
-                padding: 20px;
-                background: rgba(0, 0, 0, 0.8);
-                border-radius: 15px;
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
 
-            /* Chessboard itself */
-            #myBoard {
-                margin: 20px auto;
-                border: 4px solid #404040;
-                border-radius: 10px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-                width: 400px; /* Fixed width for the board */
-                height: 400px; /* Fixed height for the board */
-            }
+        #myBoard {
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            border: 4px solid #404040;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
 
-            /* Status and PGN section styling */
-            label {
-                font-weight: bold;
-                margin-top: 10px;
-                display: block;
-            }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
 
-            #status, #pgn {
-                margin: 10px auto;
-                padding: 10px;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 5px;
-                width: 90%;
-                font-family: monospace;
-                word-wrap: break-word;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div id="myBoard"></div>
-            <label>Status:</label>
-            <div id="status">Waiting for the game to start...</div>
-            <label>PGN:</label>
-            <div id="pgn">No moves yet.</div>
-        </div>
+        #status, #pgn {
+            margin: 10px auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            width: 90%;
+            font-family: monospace;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="myBoard"></div>
+        <label>Status:</label>
+        <div id="status">Waiting for the game to start...</div>
+        <label>PGN:</label>
+        <div id="pgn">No moves yet.</div>
+    </div>
 
-        <!-- Include Chessboard.js Library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
-        <!-- Include Chess.js Library for game logic -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-        <!-- Chessboard initialization -->
-        <script>
+    <!-- Include JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <!-- Initialize the Chessboard -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             const board = Chessboard('myBoard', {
                 draggable: true,
                 dropOffBoard: 'trash',
                 sparePieces: false
             });
 
-            let playerColor = '{{color}}';
+            // Mock player color (replace '{{color}}' with dynamic value if needed)
+            const playerColor = 'white';
             console.log('Playing as ' + playerColor);
-
-            // Status update
             document.getElementById('status').innerText = "Playing as " + playerColor;
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
