@@ -207,13 +207,13 @@
 <!-- New change code -->
 <html>
     <head>
-        {{> head}}
+        <!-- Ensure `{{> head}}` only includes essential imports -->
         <style>
             /* General body styling */
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 text-align: center;
-                margin: 50px;
+                margin: 0; /* Remove extra margins */
                 background: #2b2d42;
                 color: white;
                 height: 100vh;
@@ -303,7 +303,7 @@
         <input type="text" id="codeInput" placeholder="Enter your game code">
         <button id="createGame">Create Game</button>
         <button id="joinGame">Join Game</button>
-        <div style="color: red" id="errorMessage"></div>
+        <div id="errorMessage"></div>
 
         <script>
             $('#createGame').on('click', function() {
