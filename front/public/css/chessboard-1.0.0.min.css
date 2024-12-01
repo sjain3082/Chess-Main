@@ -1,2 +1,89 @@
-/*! chessboard.js v1.0.0 | (c) 2019 Chris Oakman | MIT License chessboardjs.com/license */
-.clearfix-7da63{clear:both}.board-b72b1{border:2px solid #404040;box-sizing:content-box}.square-55d63{float:left;position:relative;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.white-1e1d7{background-color:#f0d9b5;color:#b58863}.black-3c85d{background-color:#b58863;color:#f0d9b5}.highlight1-32417,.highlight2-9c5d2{box-shadow:inset 0 0 3px 3px #ff0}.notation-322f9{cursor:default;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;position:absolute}.alpha-d2270{bottom:1px;right:3px}.numeric-fc462{top:2px;left:2px}
+/* /*! chessboard.js v1.0.0 | (c) 2019 Chris Oakman | MIT License chessboardjs.com/license */
+.clearfix-7da63{clear:both}.board-b72b1{border:2px solid #404040;box-sizing:content-box}.square-55d63{float:left;position:relative;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.white-1e1d7{background-color:#f0d9b5;color:#b58863}.black-3c85d{background-color:#b58863;color:#f0d9b5}.highlight1-32417,.highlight2-9c5d2{box-shadow:inset 0 0 3px 3px #ff0}.notation-322f9{cursor:default;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;position:absolute}.alpha-d2270{bottom:1px;right:3px}.numeric-fc462{top:2px;left:2px} */
+
+
+/* General Board Styling */
+.board-b72b1 {
+    border: 3px solid #2b2d42;
+    box-sizing: content-box;
+    background: linear-gradient(145deg, #282c34, #3a3f4b);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin: auto;
+}
+
+/* Square Styling */
+.square-55d63 {
+    float: left;
+    position: relative;
+    width: 12.5%; /* Adjust for an 8x8 grid */
+    height: 12.5%; /* Ensure perfect squares */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.white-1e1d7 {
+    background: linear-gradient(135deg, #f7e7ce, #f0d9b5);
+    color: #b58863;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.black-3c85d {
+    background: linear-gradient(135deg, #8a6b4a, #70543b);
+    color: #f0d9b5;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.square-55d63:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: inset 0 0 10px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Highlight Styling */
+.highlight1-32417 {
+    box-shadow: inset 0 0 5px 5px rgba(255, 215, 0, 0.8); /* Gold highlight */
+    border-radius: 5px;
+}
+
+.highlight2-9c5d2 {
+    box-shadow: inset 0 0 5px 5px rgba(50, 205, 50, 0.8); /* Lime green highlight */
+    border-radius: 5px;
+}
+
+/* Notation Styling */
+.notation-322f9 {
+    cursor: default;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    color: #ddd;
+    position: absolute;
+}
+
+.alpha-d2270 {
+    bottom: 5px;
+    right: 5px;
+    font-weight: bold;
+}
+
+.numeric-fc462 {
+    top: 5px;
+    left: 5px;
+    font-weight: bold;
+}
+
+/* Additional Board Enhancements */
+.clearfix-7da63 {
+    clear: both;
+}
+
+.board-b72b1:after {
+    content: "";
+    display: table;
+    clear: both;
+}
